@@ -34,4 +34,13 @@ def get_soul_value(time):
     
     return {i:round(base_dict[i]+growth_dict[i]*time/1000, 0) for i in base_dict.keys()}
     
-print(get_soul_value(60000)["trooper"])
+def formatms(ms):
+    s = ms//1000
+    if ms >= 0:
+        m = s//60
+        s = s%60
+        return f"{m:>4}:{("0" if s < 10 and m > 0 else " "):>2}{s}"
+    return f"{s:>8}"
+
+print(formatms(8000))
+print(formatms(68000))
